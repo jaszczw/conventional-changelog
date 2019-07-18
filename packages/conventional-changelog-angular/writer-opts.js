@@ -87,6 +87,8 @@ function getWriterOpts () {
             return `[@${username}](${context.host}/${username})`
           })
         }
+
+        commit.subject = commit.subject.slice(0,1).toUpperCase().concat(commit.subject.slice(1))
       }
 
       // remove references that already appear in the subject

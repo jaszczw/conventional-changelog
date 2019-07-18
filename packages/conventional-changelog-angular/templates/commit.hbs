@@ -25,7 +25,7 @@
 
 {{~!-- commit references --}}
 {{~#if references~}}
-  , part of
+  , resolves
   {{~#each references}} {{#if @root.linkReferences~}}
     [
     {{~#if this.owner}}
@@ -52,10 +52,10 @@
     {{~/if}}/
     {{~@root.issue}}/{{this.issue}})
   {{~else}}
-    {{~#if this.owner}}
+    [{{~#if this.owner}}
       {{~this.owner}}/
     {{~/if}}
-    {{~this.repository}}{{this.issue}}
+    {{~this.repository}}{{this.issue}}]
   {{~/if}}{{/each}}
 {{~/if}}
 
