@@ -70,11 +70,11 @@ function getWriterOpts () {
           ? `${context.host}/${context.owner}/${context.repository}`
           : context.repoUrl
         if (url) {
-          url = `${url}/issues/`
+          let issuesUrl = context.packageData.issuesUrl || `${url}/issues/`;
           // Issue URLs.
           commit.subject = commit.subject.replace(/#([0-9]+)/g, (_, issue) => {
             issues.push(issue)
-            return `[#${issue}](${url}${issue})`
+            return `[${issue}](${issuesUrl}${issue})`
           })
         }
         if (context.host) {
